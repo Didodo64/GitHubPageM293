@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt</title>
+    <link rel="stylesheet" href="../CSS/contact.css">
+    <style>
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .contact-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        .contact-card h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .contact-card a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .contact-card a:hover {
+            background-color: #0056b3;
+        }
+        .info-section {
+            background-color: #e7f3ff;
+            border-left: 4px solid #007bff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Über mich</a></li>
+                <li><a href="ueberMich.html">Bootstrap-Website</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Kontakt</h1>
+
+        <!-- ALTERNATIVE KONTAKTMETHODEN -->
+        <section class="info-section">
+            <h2>Andere Kontaktmöglichkeiten</h2>
+            <p>Du kannst mich auch direkt über folgende Kanäle erreichen:</p>
+        </section>
+
+        <div class="contact-methods">
+            <!-- E-MAIL KONTAKT -->
+            <div class="contact-card">
+                <h3>E-Mail</h3>
+                <p>Sende mir eine E-Mail und ich antworte schnellstmöglich</p>
+                <a href="mailto:zwahlendiego@gmail.com">E-Mail senden</a>
+                <p><small>(Öffnet deinen Standard E-Mail-Client)</small></p>
+            </div>
+
+            <!-- TELEFON KONTAKT -->
+            <div class="contact-card">
+                <h3>Telefon</h3>
+                <p>Rufe mich direkt an für schnelle Antworten</p>
+                <a href="tel:+41782201657">+41 78 220 16 57 anrufen</a>
+                <p><small>(Auf Mobilgeräten direkt anrufen)</small></p>
+            </div>
+        </div>
+
+        <!-- FORMULAR -->
+        <section style="margin-top: 40px; border-top: 2px solid #ddd; padding-top: 30px;">
+            <h2>📝 Kontaktformular</h2>
+            <p>Oder nutze unser Kontaktformular unten:</p>
+
+            <form id="contactForm" class="contact-form" action="https://gibm.becknet.ch/formular/formular.php" method="POST">
+
+                <div class="form-group">
+                    <label for="vorname">Vorname</label>
+                    <input type="text" id="vorname" name="vorname" placeholder="Dein Vorname" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="nachname">Nachname</label>
+                    <input type="text" id="nachname" name="nachname" placeholder="Dein Nachname" required>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="email">E-Mail</label>
+                    <input type="email" id="email" name="email" placeholder="deine@email.ch" required>
+                </div>
+
+                <div class="form-group full-width">
+                    <p class="group-title">Geschlecht</p>
+                    <div class="radio-group">
+                        <label for="maennlich"><input type="radio" id="maennlich" name="geschlecht" value="Maennlich" required> Männlich</label>
+                        <label for="weiblich"><input type="radio" id="weiblich" name="geschlecht" value="Weiblich"> Weiblich</label>
+                        <label for="divers"><input type="radio" id="divers" name="geschlecht" value="Divers"> Divers</label>
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="alter">Alter: <span id="alterWert">25</span></label>
+                    <input type="range" id="alter" name="alter" min="0" max="100" value="25" oninput="document.getElementById('alterWert').textContent = this.value">
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="betreff">Betreff</label>
+                    <input type="text" id="betreff" name="betreff" placeholder="Worum geht es?" required>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="nachricht">Nachricht</label>
+                    <textarea id="nachricht" name="nachricht" rows="6" placeholder="Deine Nachricht..." required></textarea>
+                </div>
+
+                <div class="form-group full-width">
+                    <button type="submit">Absenden</button>
+                </div>
+
+            </form>
+
+            <script>
+                const formular = document.getElementById("contactForm");
+     
+                formular.addEventListener("submit", function (event) {
+                    // Formular wird normal abgeschickt
+                    console.log("Formular wird abgesendet...");
+     
+                    setTimeout(() => {
+                        formular.reset();
+                        document.getElementById('alterWert').textContent = '25';
+                    }, 0);
+                });
+            </script>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Diego Zwahlen</p>
+        <p>Kontakt: 
+            <a href="mailto:zwahlendiego@gmail.com">E-Mail</a> | 
+            <a href="tel:+41782201657">Telefon</a>
+        </p>
+    </footer>
+</body>
+</html>
